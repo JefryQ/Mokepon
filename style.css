@@ -1,0 +1,253 @@
+/*
+@import url('https://fonts.cdnfonts.com/css/pokemon-solid');
+*/
+@import "toastify-js/src/toastify.css";
+body{
+
+    font-family: 'Pokemon Solid', sans-serif;
+
+    background-image: url(./image/Fondo_opc2.jpg);
+    background-repeat:no-repeat;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+
+}
+
+#seleccionarMascota{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center ;
+}
+
+
+.titulo{
+    color: rgb(255, 0, 0);
+}
+
+.subtitulo{
+
+}
+
+.tarjeta_de_mokepon:hover {
+    animation: move-up 0.5s ease-out;
+}
+
+@keyframes move-up {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-20px);
+    }
+}
+
+
+.tarjetas, .tarjetas-ataque, .mascotas{
+    display: flex;
+    gap: 10px;
+}
+.mokepon-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.tarjeta_de_mokepon{
+    width: 212px;
+    height: 180px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px;
+    outline: 2px ridge #ffffff61;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.tarjeta_de_mokepon img{
+    width: 125px;
+    transition: all 500ms ease-out;
+
+}
+
+#boton-Mascota{
+    width: 250px;
+    height: 26px;
+    background-color: transparent;
+    padding: 5px;
+    box-sizing: border-box;
+    margin: 10px;
+    border: 1px solid;
+    outline: 2px ridge rgb(170 50 220 / 61%);
+    border-radius: 2rem;
+
+}
+
+input{
+    display: none;
+}
+
+#hipodoge:checked + label #hipo{
+    content: url("./image/hipodoge.png");
+}
+#capipepo:checked + label #capi{
+    content: url("./image/capipepo.png");
+}
+#ratigueya:checked + label #rati{
+    content: url("./image/ratigueya.png");
+}
+
+/*tarjeta versus*/
+
+/*
+.mascotas {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f2f2f2;
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+
+}
+*/
+
+
+.versus {
+    font-size: 50px;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+/*.mokepon-container-jugador {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.mokepon-container-enemigo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}*/
+
+.mokepon-info {
+    margin-top: 10px;
+    text-align: center;
+    display: flex;
+    gap: 10px;
+}
+
+img {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    margin-bottom: 10px;
+
+}
+
+/*cierra tarejat versus
+
+/*
+#movehipo{
+    !* Establece una transición de 0.5 segundos *!
+    transition: all 0.5s;
+    !* Oculta el GIF por defecto *!
+    opacity: 0;
+
+}
+
+!* Define un estilo CSS para el GIF de carga cuando se hace clic *!
+#hipogode:active + label #movehipo {
+    !* Muestra el GIF de carga cuando se hace clic o se selecciona el checkbox *!
+    opacity: 1;
+}
+!* Define un estilo CSS para la imagen cuando se carga *!
+#hipogode:checked + label #hipo {
+    !* Muestra la nueva imagen y oculta el GIF de carga después de que se cargue *!
+    opacity: 1;
+}*/
+
+#seleccionarAtaque{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bontonatq_fuego{
+    background-color: #ee620477;
+    border-radius: 2rem;
+    padding: 5px;
+    width: 100px;
+
+
+
+}
+
+.bontonatq_agua{
+    background-color: #00d0f58a;
+    border-radius: 2rem;
+    padding: 5px;
+    width: 100px;
+
+
+}
+
+.bontonatq_tierra{
+    background-color: #58321977;
+    border-radius: 2rem;
+    padding: 5px;
+    width: 100px;
+
+
+}
+
+#mensajes {
+    width: 280px;
+    background: #EEEEEE;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.ataques{
+    display: grid;
+    grid-template-columns: 100px 100px;
+    color: #ffffff;
+}
+
+.ataques-Jugador, .ataques-Enemigo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+/*.contenedor-vidas {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10rem;
+	padding: 2rem;
+}*/
+
+#vidas-jugador, #vidas-enemigo, #mascota-jugador, #mascota-enemigo{
+    font-size: 32px;
+}
+
+@media (max-width: 360px ) {
+    .tarjetas, .tarjetas-ataque, .mascotas, .mokepon-container {
+        flex-direction: column;
+    }
+
+}
+
+	

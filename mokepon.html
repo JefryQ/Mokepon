@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8" />
+        <title>MOKEPON!!</title>
+        <link rel="stylesheet" href="./style.css">
+    </head>
+    <body>
+        
+
+        <section id="seleccionarMascota">
+            <h1 class="titulo">MOKEPON!! 🔥💦🍃</h1>
+            
+            <h2 class="subtitulo">Selecciona tu mascota:</h2>
+
+            <div class="tarjetas">
+                <input type="radio" name="mascota" id="hipodoge"/>
+                <label class="tarjeta_de_mokepon" for="hipodoge">
+                    <p style="
+                    margin-top: 5px; 
+                    margin-bottom: 5px;
+                    ">Hipodoge</p>
+                    <img src="./image/pok-removebg-preview (1).png" id="hipo" alt="Hipodoge">
+                </label>
+
+                <input type="radio" name="mascota" id="capipepo"/>
+                <label class="tarjeta_de_mokepon" for="capipepo">
+                    <p style="
+                    margin-top: 5px; 
+                    margin-bottom: 5px;
+                    ">Capipepo</p>
+                    <img src="./image/pok-removebg-preview (1).png" id="capi"  alt="Capipepo">
+
+                </label>
+
+                <input type="radio" name="mascota" id="ratigueya"/>
+                <label class="tarjeta_de_mokepon" for="ratigueya">
+                    <p style="
+                    margin-top: 5px; 
+                    margin-bottom: 5px;
+                    ">Ratigueya</p>
+                    <img src="./image/pok-removebg-preview (1).png" id="rati" alt="Ratigueya">
+                </label>
+            </div>
+           
+            <button class="tarjeta_boton" id="boton-Mascota">Seleccionar</button>
+        </section>
+
+
+
+        <section id="seleccionarAtaque">
+            <h1 class="titulo">MOKEPON!! 🔥💦🍃</h1>
+
+            <div class="mascotas">
+                <div class="mokepon-container">
+                    <img src="./image/poka1.png" id="masco" alt="mokepon 1">
+                    <div class="mokepon-info">
+                        <p style="
+                        margin-top: 5px;
+                        margin-bottom: 5px;
+                        "id="vidas-jugador">3</p>
+                        <p style="
+                        margin-top: 5px;
+                        margin-bottom: 5px;
+                    "id="mascota-jugador"></p>
+                    </div>
+                </div>
+                <div class="versus">VS</div>
+                <div class="mokepon-container">
+                    <img src="./image/poka.png" id="masco2" alt="mokepon 2">
+                    <div class="mokepon-info">
+                        <p style="
+                        margin-top: 5px;
+                        margin-bottom: 5px;
+                        "id="vidas-enemigo">3</p>
+                        <p style="
+                        margin-top: 5px;
+                        margin-bottom: 5px;
+                        " id="mascota-enemigo"></p>
+                    </div>
+                </div>
+            </div>
+
+
+            <h2 class="subtitulo">Selecciona tu ataque:</h2>
+            
+            <div class="tarjetas-ataque">
+                <button id="boton-Fuego" class="bontonatq_fuego">Fuego 🔥</button>
+                <button id="boton-Agua" class="bontonatq_agua">Agua 💦</button>
+                <button id="boton-Tierra" class="bontonatq_tierra">Tierra 🍃</button>
+            </div>
+
+            <div id="mensajes">
+                <p id="resultadoCombate">MUCHA SUERTE!</p>
+            </div>
+
+<!--            <section id="ataques">
+                <div id="ataques-Jugador"></div>
+                <div id="ataques-Enemigo"></div>
+
+            </section>-->
+
+            
+            <section id="reiniciar">
+                <button id="boton-Reiniciar">Reiniciar</button>
+            </section>
+
+            <div class="ataques">
+
+                <div class="ataques-Jugador" >
+<!--                    <p id="vidas-jugador">3</p>
+                    <img src="./image/hipodoge.png" id="hi" alt="hi">
+                    <p id="mascota-jugador"></p>-->
+                    <div id="ataques-del-Jugador"></div>
+                </div>
+
+                <div class="ataques-enemigo">
+<!--                    <p id="vidas-enemigo">3</p>
+                    <p id="mascota-enemigo"></p>-->
+                    <div id="ataques-del-enemigo"></div>
+                </div>
+                
+                <!-- <p>Tu mascota <span id="mascota-jugador"></span> tiene <span id="vidas-jugador">3</span> vidas</p>
+                <p>La mascota <span id="mascota-enemigo"></span> del enemigo tiene <span id="vidas-enemigo">3</span> vidas</p> -->
+            </div>
+
+        </section>
+
+        <script src="./js/mokepon.js"></script>
+<!--
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+-->
+
+    </body>
+
+</html>
