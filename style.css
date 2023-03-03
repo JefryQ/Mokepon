@@ -88,13 +88,13 @@ input{
     display: none;
 }
 
-#hipodoge:checked + label #hipo{
+#Hipodoge:checked + label #Hipodoge{
     content: url("./image/hipodoge.png");
 }
-#capipepo:checked + label #capi{
+#Capipepo:checked + label #Capipepo{
     content: url("./image/capipepo.png");
 }
-#ratigueya:checked + label #rati{
+#Ratigueya:checked + label #Ratigueya{
     content: url("./image/ratigueya.png");
 }
 

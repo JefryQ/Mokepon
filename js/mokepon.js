@@ -13,9 +13,6 @@ const botonReiniciar = document.getElementById('boton-Reiniciar')
 
 //Variable función seleccionarMascota
 const sectionSeleccionarMascota = document.getElementById('seleccionarMascota')
-const inHipodoge = document.getElementById('hipodoge')
-const inCapipepo = document.getElementById('capipepo')
-const inRatigueya = document.getElementById('ratigueya')
 const spanMascotaJugador = document.getElementById('mascota-jugador')
 
 //Variable función seleccionarMascotaEnemigo
@@ -32,6 +29,7 @@ const ataquesDelEnemigo = document.getElementById('ataques-del-enemigo')
 //Variables mensajeFinJuego(finCombate)
 const sectionMensajes = document.getElementById('resultadoCombate')
 
+const contenedorTarjetas = document.getElementById('contenedorTarjetas')
 
 //estas se comentan porque ya están siendo usadas, y por ello están duplicadas
 /*let sectionSeleccionarMascota = document.getElementById('seleccionarMascota')
@@ -42,6 +40,13 @@ let mokepones = []
 
 let ataqueJugador
 let ataqueEnemigo
+
+let opcionDeMokepones
+
+let inHipodoge
+let inCapipepo
+let inRatigueya
+
 let vidasJugador = 3
 let vidasEnemigo = 3
 
@@ -57,11 +62,11 @@ class Mokepon {
     }
 }
 
-let hipodoge = new Mokepon('Hipodoge', './image/pok-removebg-preview (1).png', 3)
+let hipodoge = new Mokepon('Hipodoge', './image/Picsart_23-01-14_12-33-01-632.png' , 3)
 
-let capipepo = new Mokepon('Capipepo', './image/pok-removebg-preview (1).png', 3)
+let capipepo = new Mokepon('Capipepo', './image/Picsart_23-01-14_12-33-01-632.png', 3)
 
-let ratigueya = new Mokepon('Ratigueya', './image/pok-removebg-preview (1).png', 3)
+let ratigueya = new Mokepon('Ratigueya', './image/Picsart_23-01-14_12-33-01-632.png', 3)
 
 //mokepones.push(hipodoge,capipepo,ratigueya)
 hipodoge.ataques.push(
@@ -88,11 +93,32 @@ ratigueya.ataques.push(
     { nombre:'🍃',id:'boton-Tierra' },
 )
 
+mokepones.push(hipodoge,capipepo,ratigueya)
+
 function iniciarJuego(){
 
     //secciones del display(pantallas-vistas)
     sectionSeleccionarAtaque.style.display = 'none'
     sectionreiniciar.style.display = 'none'
+
+    mokepones.forEach((mokepon)=> {
+        opcionDeMokepones = `
+        <input type="radio" name="mascota" id=${mokepon.nombre} />
+                <label class="tarjeta_de_mokepon" for=${mokepon.nombre}>
+                    <p style="
+                    margin-top: 5px; 
+                    margin-bottom: 5px;
+                    ">${mokepon.nombre}</p>
+                    <img src=${mokepon.foto} id=${mokepon.nombre} alt=${mokepon.nombre}>
+                </label>
+        `
+        contenedorTarjetas.innerHTML += opcionDeMokepones
+
+
+        inHipodoge = document.getElementById('Hipodoge')
+        inCapipepo = document.getElementById('Capipepo')
+        inRatigueya = document.getElementById('Ratigueya')
+    })
 
     //Botón para seleccionar mascota
     botonMascota.addEventListener('click',seleccionarMascota)
