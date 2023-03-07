@@ -47,6 +47,8 @@ let inHipodoge
 let inCapipepo
 let inRatigueya
 
+let mascotaJugador
+
 let vidasJugador = 3
 let vidasEnemigo = 3
 
@@ -54,19 +56,21 @@ let imagen = document.getElementById("masco")
 let imagen2 = document.getElementById("masco2")
 
 class Mokepon {
-    constructor(nombre, foto, vida) {
+    constructor(nombre, foto, imgEnemigo, vida, espejo) {
         this.nombre = nombre
         this.foto = foto
+        this.imgEnemigo = imgEnemigo
         this.vida = vida
+        this.espejo = espejo
         this.ataques = []
     }
 }
 
-let hipodoge = new Mokepon('Hipodoge', './image/Picsart_23-01-14_12-33-01-632.png' , 3)
+let hipodoge = new Mokepon('Hipodoge', './image/Picsart_23-01-14_12-33-01-632.png', "./image/hipodoge.png" , 3)
 
-let capipepo = new Mokepon('Capipepo', './image/Picsart_23-01-14_12-33-01-632.png', 3)
+let capipepo = new Mokepon('Capipepo', './image/Picsart_23-01-14_12-33-01-632.png', "./image/capipepo.png", 3)
 
-let ratigueya = new Mokepon('Ratigueya', './image/Picsart_23-01-14_12-33-01-632.png', 3)
+let ratigueya = new Mokepon('Ratigueya', './image/Picsart_23-01-14_12-33-01-632.png',"./image/ratigueya.png",3, true)
 
 //mokepones.push(hipodoge,capipepo,ratigueya)
 hipodoge.ataques.push(
@@ -101,6 +105,7 @@ function iniciarJuego(){
     sectionSeleccionarAtaque.style.display = 'none'
     sectionreiniciar.style.display = 'none'
 
+    //iterar
     mokepones.forEach((mokepon)=> {
         opcionDeMokepones = `
         <input type="radio" name="mascota" id=${mokepon.nombre} />
@@ -152,24 +157,32 @@ function seleccionarMascota(){
     sectionSeleccionarAtaque.style.display = 'flex'
 
     let seleccion = '';
+// Al utilizar el nombre del objecto.id estamos haciendo uso de una sola fuente de verdad.
+
+    // En resumen:
+    // Todas las funciones que tengan información “a mano” que nosotros ponemos, la vamos a retirar, para poner sólo la información que existe en los objetos, es decir Usar una sola fuente de verdad.
+
 
     if(inHipodoge.checked){
-        seleccion = 'Hipogode'
+        seleccion = inHipodoge.id
         // Cambia la fuente de la imagen por la nueva imagen
         imagen.src = "./image/hipodoge.png";
         imagen.style.transform = "scaleX(-1)"
+        mascotaJugador = inHipodoge.id
     }
 
     else if(inCapipepo.checked){
-        seleccion = 'Capipepo'
+        seleccion = inCapipepo.id
         // Cambia la fuente de la imagen por la nueva imagen
         imagen.src = "./image/capipepo.png";
+        mascotaJugador = inCapipepo.id
     }
 
     else if(inRatigueya.checked){
-        seleccion = 'Ratigueya'
+        seleccion = inRatigueya.id
         // Cambia la fuente de la imagen por la nueva imagen
         imagen.src = "./image/ratigueya.png";
+        mascotaJugador = inRatigueya.id
     }
     else{
         Toastify({
@@ -182,13 +195,38 @@ function seleccionarMascota(){
     }
     spanMascotaJugador.innerHTML = seleccion;
 
+    extraerAtaques(mascotaJugador)
+
     seleccionarMascotaEnemigo()
 }
 
-function seleccionarMascotaEnemigo(){
-    let mascotaAleatorio = aleatorio(1,3)
 
-    if (mascotaAleatorio === 1){
+function extraerAtaques(mascotaJugador){
+    let ataques
+    for (let i = 0; i < mokepones.length; i++) {
+        if (mascotaJugador === mokepones[i].nombre){
+            ataques = mokepones[i].ataques
+
+        }
+    }
+    mostrarAtaques(ataques)
+}
+
+function seleccionarMascotaEnemigo(){
+
+    //mascota aleatoria con arreglos
+    let mascotaAleatoria = aleatorio(0,mokepones.length -1)
+
+    let mascotaSeleccionada = mokepones[mascotaAleatoria];
+    spanMascotaEnemigo.innerHTML = mascotaSeleccionada.nombre;
+
+    imagen2.src = mascotaSeleccionada.imgEnemigo;
+    if (mascotaSeleccionada.espejo) {
+        imagen2.style.transform = "scaleX(-1)";
+    } else {
+        imagen2.style.transform = "none";
+    }
+/*    if (mascotaAleatorio === 1){
         spanMascotaEnemigo.innerHTML = 'Hipogode'
         // Cambia la fuente de la imagen por la nueva imagen
         imagen2.src = "./image/hipodoge.png";
@@ -203,7 +241,7 @@ function seleccionarMascotaEnemigo(){
         // Cambia la fuente de la imagen por la nueva imagen
         imagen2.src = "./image/ratigueya.png";
         imagen2.style.transform = "scaleX(-1)"
-    }
+    }*/
 }
 
 //Ataques jugador
